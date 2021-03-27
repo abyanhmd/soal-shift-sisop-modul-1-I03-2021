@@ -18,7 +18,13 @@ sort command is to sort the log alphabetically.
 uniq comannd is to count each of the same sentence and sort of merge it out.
 another sort is to sort the number of the uniq descending after it was counted by uniq.
 
-c) cannot be solved, not understand it yet
+c) To show total INFO and ERROR for each user, we can use
+grep -E -o 'INFO.*' syslog.log | cut -d"(" -f2 | cut -d")" -f1 | sort -d | uniq -c
+grep -E -o 'ERROR.*' syslog.log | cut -d"(" -f2 | cut -d")" -f1 | sort -d | uniq -c
+grep command is to show all the from the ERROR to end of each line of the syslog.
+cut command is to distinguish between before and after ‘(‘ and ')' character.
+sort command is to sort the log alphabetically.
+uniq comannd is to count each of the same sentence and sort of merge it out.
 
 d) In order to print from the b question, we can use the same variable before
 echo "Error, Count" >> error_message.csv
