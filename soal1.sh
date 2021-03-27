@@ -20,6 +20,9 @@ echo "Timeout while retrieving information: $timeinfo" >> report.csv
 echo "Ticket doesn't exist: $existinfo" >> report.csv
 echo "Connection to DB failed: $connectinfo" >> report.csv
 
+# 1C
+totalinf="$(grep -E -o 'INFO.*' syslog.log | cut -d"(" -f2 | cut -d")" -f1 | sort -d | uniq -c)"
+totalerr="$(grep -E -o 'ERROR.*' syslog.log | cut -d"(" -f2 | cut -d")" -f1 | sort -d | uniq -c)"
 
 # 1D
 echo "Error, Count" >> error_message.csv
