@@ -39,28 +39,10 @@ e) cannot be solved, not understand it yet
 
 
 2.
-a)
-Look for the largest row ID and profit percentage. The profit percentage is calculated using the formula (profit / cost price) X 100
-
-#!/bin/bash
-export LC_ALL=C
-
-awk -F '\t' BEGIN{max=0;}
-NR>1
-{ profit_persen=$21/($18-$21) *100;
-if profit_persen >= max;
-max=profit_persen;
-rowID=$1;
-}END {
-printf {"%d",max}
-
-First we use LC_ALL=C so that we can get the right decimal numbers. Second we begin it by initializing max ( maximum profit ) by zero. 
-Then we start nr>1 because we need the process started by row 2. And then we used the operation that given before to calculate the profit percentage. 
-Maximum will equalized with profit percentage. Also, if the profit percentage is already determined, it will be printed. (this is an unfinished solution)
-
-b. cannot be solved not understand yet
-c. cannot be solved not understand yet
-d. cannot be solved not understand yet
+a) cannot be solved, not understand yet
+b. cannot be solved, not understand yet
+c. cannot be solved, not understand yet
+d. cannot be solved, not understand yet
 
 
 3.
@@ -70,7 +52,6 @@ and then we check if the downloaded file is not duplicated if its duplicated we 
 b) We make a crontab that run the 3a script at 8 pm every 7 days from 1st of the month and every 4 days from 2nd  of the month. We use 0 20 */7 * * for every 7 days and 0 20 2/4 * * for every 4 days starts from 2nd 
 and then we have to put the picture and the log to a folder with the name as the download date. but we not do this in our code we not understand how to do it.
 
-c) cannot be solved not understand yet
-d) cannot be solved not understand yet
-e) cannot be solved not understand yet
-
+c) cannot be solved, not understand yet
+d) cannot be solved, not understand yet
+e) cannot be solved, not understand yet
