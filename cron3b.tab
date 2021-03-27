@@ -1,0 +1,2 @@
+0 20 */7 * * /bin/bash /home/soal3.sh
+0 20 2/4 * * /bin/bash /home/soal3.sh 
