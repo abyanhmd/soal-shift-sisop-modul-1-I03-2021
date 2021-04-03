@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#count folder kucing / kelinci
 kucCount=`ls | grep -E 'Kucing_*'| wc -l `
 kelCount=`ls | grep -E 'Kelinci_*'| wc -l`
 
@@ -14,13 +15,13 @@ else
 fi
 
 
-# * Downloads file, but if the same file name exist, then don't
+# * Downloads file
 for (( i=0;i< 24;i=i+1 ))
 do
 wget --content-disposition https://loremflickr.com/320/240/$eng -a 'Foto.log'
 done
 
-# * Rename .jpg files inside to incrementing name
+# * Rename .jpg files  incrementing 
 j=1
 for i in *.jpg
 do
