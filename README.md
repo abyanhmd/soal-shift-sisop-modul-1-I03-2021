@@ -85,6 +85,117 @@ done|sed "1 i\Username, INFO, ERROR" >> user_statistic.csv
 ```
 Firstly, store all of the username with cat, cut, uniq, and sort command into a variable. And then, the loop includes a new variable, the command to total the INFO and ERROR for each user with the new variable inside the command to match the user and with the username before (INFO.*($user)). After that, we sed it with 1 for the initial line because the first line that is required to be printed is Username, INFO, ERROR and i for the iteration. Finally, store all of the data above to user_statistic.csv file.
 
+### **NUMBER 2**
+**a.  Look for the largest row ID and profit percentage. The profit percentage is calculated using the formula (profit / cost price) X 100 ** </br>
+```shell 
+BEGIN{printf "transaction with the biggest profit precentage" }
+
+{
+
+{if(NR!=1)
+
+max=0;idmax=0
+
+profitpercentage=(($21/($18-$21))*100)
+
+id=$1
+
+{if(profitpercentage>=max)
+
+{
+
+max=profitpercentage
+
+idmax=id}
+}}}
+
+END{printf " %d with precentage of %.2f%%.\n\n", idmax, max}
+
+' "$input" >> hasil.txt
+```
+First we use LC_ALL=C so that we can get the right decimal numbers. Second we begin it by initializing max ( maximum profit ) by zero. Then we start nr>1 because we need the process started by row 2. And then we used the operation that given before to calculate the profit percentage. Maximum will equalized with profit percentage. Also, if the profit percentage is already determined, it will be printed to hasil txt.
+
+**b. Looking for customer that doing transaction at albuquerque at 2017 ** </br>
+```shell
+awk -F "\t" '
+
+BEGIN{printf "customer list of albuquerque at 2017\n"}
+
+{
+
+{if(NR!=1)
+
+{
+
+{if($10~"Albuquerque" && $3 ~ /17$/)
+
+a[$7]++}
+}}}
+
+END{ for(b in a){ print b} {printf "\n"}}
+
+' "$input" >> hasil.txt
+```
+starting the code if the line != 1. checking if Albuquerque is 10$ city and $3 (Date) is in 2017, then customer will be stored at a[&7] array.
+after END, we loop the data of customer and print it afterwards.
+
+**c. Looking for customer segment and the number of transactions with the least amount of transactions.** </br>
+```shell
+awk -F"\t" '
+
+BEGIN {printf("the least segment type is")}
+
+{segment=$8
+
+if (NR != 1)
+
+count[segment]++}
+
+END {type=0;min=99999;
+
+for (segment in count) {
+
+if (min > count[segment]) {
+
+min=count[segment]
+type=segment}
+}
+printf(" %s with %s\n" , type, min)
+
+}' "$input" >> hasil.txt
+```
+starting using count[segment] to checking the segments and adding space to it. starting the code if the line != 1.
+we use the min and type to store the segment type and the spaces of it. then we use loop to calculate the smallest of the segments. lastly, we output it to hasil.txt.
+
+**d. Looking for region that has the least total profit and the total profit of that region**</br>
+```shell
+awk -F"\t" '
+
+BEGIN {printf("the region with the least profit is ")}
+
+{profit=$21;region=$13;
+
+if (NR != 1)
+
+count[region] = count[region] + profit;}
+
+END {type=0;min=9999999999;
+
+for (region in count) {
+
+if (min > count[region]) {
+
+min=count[region]
+
+type=region}
+}
+printf("%s with total %f\n", type, min)
+}' "$input" >> hasil.txt
+```
+
+first we save the region in count[region], the to accumulate the profit with it, we add it to count[region]+profit. then we loop the region. to search the minimum, we used the if(min > count[region]). after that, the type is used to save the region name. lastly, we output it to the hasil.txt
+
+
 ### **NUMBER 3**
 **a. Download 23 images save the logs and rename it**</br>
 First we need to download images from https://loremflickr.com/320/240/kitten, then we check for any duplicates images, if there is any of it delete the duplicates then rename all the images with "Koleksi_xx".
