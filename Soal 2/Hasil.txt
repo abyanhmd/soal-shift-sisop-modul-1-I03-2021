@@ -1,2 +1,10 @@
+transaction with the biggest profit precentage 9994 with precentage of 42.86%.
+
 customer list of albuquerque at 2017
-customer list of albuquerque at 2017
+Benjamin Farhat
+David Wiener
+Michelle Lonsdale
+Susan Vittorini
+
+the least segment type is Home Office with 1783
+the region with the least profit is Central with total 39706.362500
