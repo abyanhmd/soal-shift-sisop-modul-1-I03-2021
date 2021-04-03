@@ -43,7 +43,7 @@ input="/home/mukhoram/Downloads/Laporan-TokoShiSop.tsv"
 awk -F"\t"  '
 BEGIN {printf("the least segment type is")}
 {segment=$8
-    if (NR == 1) next 
+    if (NR != 1)  
     count[segment]++
 } 
 END {type=0;min=99999;
@@ -62,7 +62,7 @@ input="/home/mukhoram/Downloads/Laporan-TokoShiSop.tsv"
 awk -F"\t"  '
 BEGIN {printf("the region with the least profit is ")}
 {profit=$21;region=$13;
-    if (NR == 1) next 
+    if (NR != 1) 
     count[region] = count[region] + profit;
 } 
 END {type=0;min=9999999999;
