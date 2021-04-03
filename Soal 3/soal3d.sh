@@ -2,7 +2,7 @@
 
 jam=`date +%H`
 
-if [[ $jam == 7 ]]
+if [[ $jam == 07 ]]
 then
     zip -r -P $(date +%m%d%Y) Koleksi.zip */
     # remove all zip
