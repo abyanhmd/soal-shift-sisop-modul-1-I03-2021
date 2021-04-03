@@ -86,7 +86,7 @@ done|sed "1 i\Username, INFO, ERROR" >> user_statistic.csv
 Firstly, store all of the username with cat, cut, uniq, and sort command into a variable. And then, the loop includes a new variable, the command to total the INFO and ERROR for each user with the new variable inside the command to match the user and with the username before (INFO.*($user)). After that, we sed it with 1 for the initial line because the first line that is required to be printed is Username, INFO, ERROR and i for the iteration. Finally, store all of the data above to user_statistic.csv file.
 
 ### **NUMBER 2**
-**a.  Look for the largest row ID and profit percentage. The profit percentage is calculated using the formula (profit / cost price) X 100 **</br>
+**a.  Look for the largest row ID and profit percentage. The profit percentage is calculated using the formula (profit / cost price) X 100.**</br>
 ```shell 
 BEGIN{printf "transaction with the biggest profit precentage" }
 
