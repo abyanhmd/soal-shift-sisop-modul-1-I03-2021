@@ -104,7 +104,7 @@ for i in *.jpg
 We use ``wget --content-disposition`` to download the images as the original name so we can easily check for any duplicates. if not the images name will be kitten.jpg and we use ``-a 'Foto.log'`` to save the log.
 Next we remove duplicates with ``rm *.jpg.*`` and rename all the images incrementally.</br>
 
-**b. Run the script at 20:00 PM and move it to a folder**
+**b. Run the script at 20:00 PM and move it to a folder**</br>
 We want to run the previous script at 20:00 PM starting the 1st every seven days (1,8...) and 2nd once every four days (2,6..) and move all the images and the log into folder with the download date.
 ```shell
 for (( i=0 ; i<23 ; i=i+1 ))
@@ -134,7 +134,7 @@ for the crontab we use
 ```
 ``0 20`` represent the 20:00 PM time, ``1/7,2/4`` represent every seven days start from 1st and every 4 days starts from 2nd.</br>
 
-**c. Download bunny images alternately and rename the folder name**
+**c. Download bunny images alternately and rename the folder name**</br>
 First we need to decide what images we have to download, if we download kitten we make folder named ``Kucing_date`` if we download bunny we make folder named ``Kelinci_date`` with the download date.
 ```shell
 kucCount=`ls | grep -E 'Kucing_*'| wc -l `
@@ -171,7 +171,7 @@ To count the emergence of bunny and kitten folder we use ``ls | grep -E 'Kucing_
 We use variable `eng` to changes the url download based on what we want to download and variable `ind` to rename the folder.
 the rest of the code pretty similiar as the previous code. </br>
 
-**d. Secure the download images and log into zip** 
+**d. Secure the download images and log into zip** </br>
 We want to zip all the folder and lock the zip with the current date.
 ```shell
 jam=`date +%H`
@@ -194,7 +194,7 @@ if it is 18:00 PM we unzip it and we use `rm Koleksi.zip` to delete the zip.
 
 to set the zip password with the current date we use `-P $(date +%m%d%Y)`.</br>
 
-**e. Run the script every day except saturday and sunday**
+**e. Run the script every day except saturday and sunday**</br>
 We want to run the script every day except saturday and sunday and zip all the folder at 07:00 AM and unzip it at 18:00 PM.
 ```shell
 0 7,18 * * 1-5 bash home/hilmythoriq/soal3d.sh
