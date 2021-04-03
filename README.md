@@ -86,7 +86,7 @@ done|sed "1 i\Username, INFO, ERROR" >> user_statistic.csv
 Firstly, store all of the username with cat, cut, uniq, and sort command into a variable. And then, the loop includes a new variable, the command to total the INFO and ERROR for each user with the new variable inside the command to match the user and with the username before (INFO.*($user)). After that, we sed it with 1 for the initial line because the first line that is required to be printed is Username, INFO, ERROR and i for the iteration. Finally, store all of the data above to user_statistic.csv file.
 
 ### **NUMBER 2**
-**a.  Look for the largest row ID and profit percentage. The profit percentage is calculated using the formula (profit / cost price) X 100 ** </br>
+**a.  Look for the largest row ID and profit percentage. The profit percentage is calculated using the formula (profit / cost price) X 100 **</br>
 ```shell 
 BEGIN{printf "transaction with the biggest profit precentage" }
 
@@ -115,7 +115,7 @@ END{printf " %d with precentage of %.2f%%.\n\n", idmax, max}
 ```
 First we use LC_ALL=C so that we can get the right decimal numbers. Second we begin it by initializing max ( maximum profit ) by zero. Then we start nr>1 because we need the process started by row 2. And then we used the operation that given before to calculate the profit percentage. Maximum will equalized with profit percentage. Also, if the profit percentage is already determined, it will be printed to hasil txt.
 
-**b. Looking for customer that doing transaction at albuquerque at 2017 ** </br>
+**b. Looking for customer that doing transaction at albuquerque at 2017.**</br>
 ```shell
 awk -F "\t" '
 
@@ -139,7 +139,7 @@ END{ for(b in a){ print b} {printf "\n"}}
 starting the code if the line != 1. checking if Albuquerque is 10$ city and $3 (Date) is in 2017, then customer will be stored at a[&7] array.
 after END, we loop the data of customer and print it afterwards.
 
-**c. Looking for customer segment and the number of transactions with the least amount of transactions.** </br>
+**c. Looking for customer segment and the number of transactions with the least amount of transactions.**</br>
 ```shell
 awk -F"\t" '
 
@@ -167,7 +167,7 @@ printf(" %s with %s\n" , type, min)
 starting using count[segment] to checking the segments and adding space to it. starting the code if the line != 1.
 we use the min and type to store the segment type and the spaces of it. then we use loop to calculate the smallest of the segments. lastly, we output it to hasil.txt.
 
-**d. Looking for region that has the least total profit and the total profit of that region**</br>
+**d. Looking for region that has the least total profit and the total profit of that region.**</br>
 ```shell
 awk -F"\t" '
 
