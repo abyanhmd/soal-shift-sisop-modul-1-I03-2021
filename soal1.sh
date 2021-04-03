@@ -32,3 +32,13 @@ echo "Tried to add information to closed ticket, $closedinfo" >> error_message.c
 echo "Permission denied, $denyinfo" >> error_message.csv
 echo "The ticket was modified while updating, $modinfo" >> error_message.csv
 echo "File not found, $existinfo" >> error_message.csv
+
+# 1E
+name="$(cat syslog.log | cut -d"(" -f2 | cut -d")" -f1 | sort -d | uniq -d)"
+echo "$name" |
+while read user
+do
+        totinfo=`grep -E -o "INFO.*($user)" syslog.log | wc -l`
+        toterror=`grep -E -o "ERROR.*($user)" syslog.log | wc -l`
+        echo "$user, $totinfo, $toterror"
+done|sed "1 i\Username, INFO, ERROR" >> user_statistic.csv
