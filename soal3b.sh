@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# * Downloads file, if same remove it.
+# * Downloads file
 for (( i=0 ; i<23 ; i=i+1 ))
 do
 wget --content-disposition https://loremflickr.com/320/240/kitten -a 'Foto.log'
@@ -9,7 +9,7 @@ done
 # * remove duplicates with jpg
 rm *.jpg.* 
 
-# # * Rename .jpg files inside to incrementing name
+# # * Rename .jpg files incrementing
 j=1
 for i in *.jpg
 do
