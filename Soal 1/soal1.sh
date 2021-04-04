@@ -1,10 +1,8 @@
 #!/bin/bash
 
 # 1A
-loginfo="$(grep -E 'INFO' syslog.log)"
-logerror="$(grep -E 'ERROR' syslog.log)"
-echo $loginfo >> report.csv
-echo $logerror >> report.csv
+log=`grep -o "[INFO|ERROR].*" syslog.log | cut -d":" -f2`
+echo $log >> report.csv
 
 # 1B
 denyinfo="$(grep -E 'Permission denied while closing ticket' syslog.log | wc -l)"
